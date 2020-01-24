@@ -2,7 +2,7 @@ $mods = @()
 $nexusBaseLink = 'https://www.nexusmods.com/stardewvalley/mods/'
 
 
-foreach ($d in Get-ChildItem -Attributes Directory)
+foreach ($d in Get-ChildItem -Directory -Recurse)
 {
     $mods += (Get-Content (Join-Path $d -ChildPath "manifest.json") | Out-String | ConvertFrom-Json)
 }
